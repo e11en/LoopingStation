@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MdSnackBar } from '@angular/material';
-import { Track } from "../../models/track.model";
+import { Track } from '../../models/track.model';
 
 @Component({
     selector: 'app-tracks',
