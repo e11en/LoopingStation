@@ -4,6 +4,10 @@ export class Project {
     name: string;
     tracks: Array<Track>;
 
+    constructor() {
+        this.tracks = [];
+    }
+
     AddTrack() {
         this.tracks.push(new Track(this.GetNextId()));
     }
