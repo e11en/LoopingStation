@@ -3,6 +3,7 @@ import { MdSnackBar } from '@angular/material';
 import { Track } from "../../models/track.model";
 
 @Component({
+    selector: 'app-tracks',
     templateUrl: './tracks.component.html',
     styleUrls: ['./tracks.component.scss']
 })
