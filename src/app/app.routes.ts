@@ -6,22 +6,26 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 /* Routable components*/
-import { ExampleComponent } from './components/example/example.component';
 import { ErrorComponent } from './components/error/error.component';
+import { ProjectComponent } from './components/project/project.component';
+
+/* Child components */
+import { TracksComponent } from './components/tracks/tracks.component';
 
 export const AppRoutes: Routes = [
-    { path: '', redirectTo: 'example', pathMatch: 'full' },
-    { path: 'example', component: ExampleComponent },
+    { path: '', redirectTo: 'project', pathMatch: 'full' },
+    { path: 'project', component: ProjectComponent },
     { path: '**', component: ErrorComponent },
 ];
 
 export const routableComponents = [
-    ExampleComponent,
+    ProjectComponent,
     ErrorComponent
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(AppRoutes)],
+    declarations: [TracksComponent],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
