@@ -9,7 +9,7 @@ import { HttpModule } from '@angular/http';
 
 /* Modules */
 import { CoreModule } from './core/core.module';
-import { AppRoutingModule, routableComponents } from './app.routes';
+import { AppRoutingModule, routableComponents, childComponents } from './app.routes';
 
 /* Services */
 import { ExampleService } from './services/example.service';
@@ -21,7 +21,7 @@ import { NavComponent } from './components/nav/nav.component';
 @NgModule({
   declarations: [
     AppComponent, NavComponent,
-    routableComponents
+    routableComponents, childComponents
   ],
   imports: [
     CoreModule,

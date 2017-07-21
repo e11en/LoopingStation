@@ -23,9 +23,12 @@ export const routableComponents = [
     ErrorComponent
 ];
 
+export const childComponents = [
+    TracksComponent
+];
+
 @NgModule({
     imports: [RouterModule.forRoot(AppRoutes)],
-    declarations: [TracksComponent],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

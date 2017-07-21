@@ -5,7 +5,7 @@ export class Project {
     tracks: Array<Track>;
 
     constructor() {
-        this.tracks = [new Track(this.GetNextId())];
+        this.tracks = [new Track(1)];
     }
 
     AddTrack() {
@@ -13,7 +13,7 @@ export class Project {
     }
 
     GetNextId(): number {
-        const nextId = this.tracks.slice(-1)[0].id + 1;
-        return nextId ? nextId : 1;
+        const lastTrack = this.tracks.slice(-1)[0];
+        return lastTrack ? lastTrack.id + 1 : 1;
     }
 }

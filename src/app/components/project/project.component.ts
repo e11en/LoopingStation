@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Project } from '../../models/project.model';
-import { Track } from '../../models/track.model';
 
 @Component({
     templateUrl: './project.component.html',
