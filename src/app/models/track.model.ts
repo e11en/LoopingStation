@@ -11,7 +11,9 @@ export class Track {
     isSolo: boolean;
     isMuted: boolean;
     isRecording: boolean;
+    isReplaced: boolean;
     isOverdub: boolean;
+    history: Array<[string, any]>;
 
     constructor(id: number) {
         this.id = id;
@@ -26,28 +28,37 @@ export class Track {
         this.isSolo = false;
         this.isMuted = false;
         this.isRecording = false;
+        this.isReplaced = false;
         this.isOverdub = false;
+        this.history = [];
     }
 
     Mute() {
-        this.isMuted = true;
+        this.isMuted = !this.isMuted;
         this.isSolo = false;
+        this.SetStatus(this.isMuted ? 'Muted' : '');
+        console.log(this.isMuted ? 'Muted' : 'Un-muted');
     }
 
     Solo() {
-        this.isSolo = true;
+        this.isSolo = !this.isSolo;
         this.isMuted = false;
         // TODO: Mute all other tracks
+        this.SetStatus(this.isSolo ? 'Solo' : '');
+        console.log(this.isSolo ? 'Solo' : 'Un-solo');
     }
 
     SetStatus(status: string) {
         this.status = status;
     }
 
-    StartRecording(overdub = false) {
+    StartRecording(overdub = false, replace = false) {
         this.isRecording = true;
         this.isMuted = false;
+        this.isReplaced = replace;
         this.isOverdub = overdub;
+
+        console.log('Started recording, overdub:' + overdub + ' replace: ' + replace);
         this.SetStatus('Recording');
         // TODO: Start record audio
     }
@@ -55,6 +66,8 @@ export class Track {
     StopRecording() {
         this.isRecording = false;
         this.isOverdub = false;
+        this.isReplaced = false;
+        console.log('Stopped recording');
         // TODO: Stop recording audio
         this.SetStatus('');
     }

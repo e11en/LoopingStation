@@ -1,14 +1,44 @@
 <div class="tracks-wrapper" *ngFor="let track of tracks">
-    <!--<md-card class="card-stand-alone clearfix">-->
-        <!--<md-card-header class="card-header-full-width mat-toolbar mat-accent">-->
-            <!--<md-card-title>{{track.name}}</md-card-title>-->
-        <!--</md-card-header>-->
-        <!--<md-card-content>-->
+    <md-card class="card-stand-alone clearfix">
+        <md-card-header class="card-header-full-width mat-toolbar mat-accent">
+            <md-card-title>{{track.name}}</md-card-title>
+        </md-card-header>
+        <md-card-content>
 
-            <!--dingen-->
+            <div class="button-wrapper">
+                <button md-raised-button (click)="Record(track)" [style.background]="ButtonColor(track, 'record')">RECORD</button>
+                <button md-raised-button (click)="Record(track)" [style.background]="ButtonColor(track, 'replace')" [disabled]="track.isRecording">REPLACE</button>
+                <button md-raised-button (click)="Record(track)" [style.background]="ButtonColor(track, 'overdub')" [disabled]="track.isRecording">OVERDUB</button>
+                <button md-raised-button (click)="DeleteTrack(track)">DELETE</button>
+            </div>
 
-        <!--</md-card-content>-->
-    <!--</md-card>-->
+            <div class="info-wrapper">
+                <span class="time">{{track.time}}</span>
+                <span class="status">{{track.status}}</span>
+            </div>
+
+            <div class="sound-wrapper">
+                <div class="volume">{{track.volume}}</div> <!-- TODO: Figure this out -->
+                <button md-raised-button (click)="track.Solo()" [style.background]="ButtonColor(track, 'solo')">SOLO</button>
+                <button md-raised-button (click)="track.Mute()" [style.background]="ButtonColor(track, 'mute')">MUTE</button>
+            </div>
+
+            <div class="effects-wrapper">
+                <div class="presets">
+                    <md-checkbox>Reverb</md-checkbox>
+                    <md-checkbox>Vocoder</md-checkbox>
+                    <md-checkbox>Double</md-checkbox>
+                    <md-checkbox>Megaphone</md-checkbox>
+                    <md-checkbox>Autotune</md-checkbox>
+                </div>
+
+                <md-slider [value]="track.delay" [max]="100" [step]="1"></md-slider>
+                <div class="pitch">pitch</div> <!-- TODO: Figure this out -->
+
+            </div>
+
+        </md-card-content>
+    </md-card>
 </div>
 
 
