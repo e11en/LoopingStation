@@ -9,5 +9,45 @@
     margin-left: 1em;
 }
 
+.track-title {
+    font-size: 1.5em;
+    border: none;
+    background: none;
+}
 
+.button-wrapper {
+    display: inline-block;
+    width: 20em;
+
+    button {
+        width: 7em;
+        margin: 1em;
+    }
+}
+
+.info-wrapper {
+    display: inline-block;
+    width: 20em;
+    height: 5em;
+    background-color: #ffd3f5;
+}
+
+
+.sound-wrapper {
+    display: inline-block;
+    width: 20em;
+    height: 5em;
+}
+
+.effects-wrapper {
+    .presets {
+        display: inline-block;
+        width: 20em;
+    }
+
+    .other {
+        display: inline-block;
+        float: right;
+    }
+}
 

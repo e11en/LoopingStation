@@ -1,7 +1,7 @@
 <div class="tracks-wrapper" *ngFor="let track of tracks">
     <md-card class="card-stand-alone clearfix">
         <md-card-header class="card-header-full-width mat-toolbar mat-accent">
-            <md-card-title>{{track.name}}</md-card-title>
+            <md-card-title> <input class="track-title" mdInput [(ngModel)]="track.name"></md-card-title>
         </md-card-header>
         <md-card-content>
 
@@ -23,6 +23,8 @@
                 <button md-raised-button (click)="track.Mute()" [style.background]="ButtonColor(track, 'mute')">MUTE</button>
             </div>
 
+            <hr>
+
             <div class="effects-wrapper">
                 <div class="presets">
                     <md-checkbox>Reverb</md-checkbox>
@@ -30,11 +32,13 @@
                     <md-checkbox>Double</md-checkbox>
                     <md-checkbox>Megaphone</md-checkbox>
                     <md-checkbox>Autotune</md-checkbox>
+                    <!-- TODO: Bind to the effects array -->
                 </div>
 
-                <md-slider [value]="track.delay" [max]="100" [step]="1"></md-slider>
-                <div class="pitch">pitch</div> <!-- TODO: Figure this out -->
-
+                <div class="other">
+                    Delay <md-slider [(ngModel)]="track.delay" [max]="100" [step]="1"></md-slider> {{track.delay}}
+                    <div class="pitch">pitch</div> <!-- TODO: Figure this out -->
+                </div>
             </div>
 
         </md-card-content>
