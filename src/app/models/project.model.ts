@@ -5,7 +5,7 @@ export class Project {
     tracks: Array<Track>;
 
     constructor() {
-        this.tracks = [];
+        this.tracks = [new Track(this.GetNextId())];
     }
 
     AddTrack() {

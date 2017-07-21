@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { Component, Input } from '@angular/core';
 import { Track } from '../../models/track.model';
 
 @Component({
@@ -8,9 +7,5 @@ import { Track } from '../../models/track.model';
     styleUrls: ['./tracks.component.scss']
 })
 export class TracksComponent {
-    tracks: Array<Track>;
-
-    constructor(tracks: Array<Track>) {
-        this.tracks = tracks;
-    }
+    @Input() tracks: Array<Track>;
 }

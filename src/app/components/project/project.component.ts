@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import {Project} from '../../models/project.model';
+import { Project } from '../../models/project.model';
+import { Track } from '../../models/track.model';
 
 @Component({
-    templateUrl: './tracks.component.html',
-    styleUrls: ['./tracks.component.scss']
+    templateUrl: './project.component.html',
+    styleUrls: ['./project.component.scss']
 })
 export class ProjectComponent {
     project: Project;
